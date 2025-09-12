@@ -1,0 +1,303 @@
+.mrifat-inbox-container {
+    display: flex;
+    gap: 0;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 70vh;
+    min-height: 600px;
+}
+
+.mrifat-inbox-sidebar {
+    width: 300px;
+    border-right: 1px solid #c3c4c7;
+    background: #f9f9f9;
+    overflow-y: auto;
+}
+
+.mrifat-inbox-header {
+    padding: 15px 20px;
+    background: #fff;
+    border-bottom: 1px solid #c3c4c7;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.mrifat-inbox-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mrifat-inbox-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.mrifat-inbox-item:hover {
+    background: #f0f0f0;
+}
+
+.mrifat-inbox-item.active {
+    background: #2271b1;
+    color: #fff;
+}
+
+.mrifat-inbox-item.active .mrifat-inbox-meta {
+    color: #ddd;
+}
+
+.mrifat-inbox-item.unread {
+    background: #f0f6fc;
+    font-weight: 600;
+}
+
+.mrifat-inbox-item.unread::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #2271b1;
+}
+
+.mrifat-inbox-sender {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.mrifat-inbox-subject {
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #1d2327;
+}
+
+.mrifat-inbox-item.active .mrifat-inbox-subject {
+    color: #fff;
+}
+
+.mrifat-inbox-meta {
+    font-size: 12px;
+    color: #646970;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mrifat-inbox-status {
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.mrifat-inbox-status.unread {
+    background: #d63638;
+    color: #fff;
+}
+
+.mrifat-inbox-status.read {
+    background: #00a32a;
+    color: #fff;
+}
+
+.mrifat-inbox-status.replied {
+    background: #2271b1;
+    color: #fff;
+}
+
+.mrifat-inbox-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.mrifat-inbox-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #646970;
+    font-size: 16px;
+}
+
+.mrifat-message-header {
+    padding: 20px 30px;
+    background: #fff;
+    border-bottom: 1px solid #c3c4c7;
+}
+
+.mrifat-message-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: #1d2327;
+}
+
+.mrifat-message-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #646970;
+    font-size: 14px;
+}
+
+.mrifat-message-actions {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.mrifat-message-body {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.mrifat-message-details {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+}
+
+.mrifat-message-details h4 {
+    margin: 0 0 15px 0;
+    color: #1d2327;
+    font-size: 16px;
+}
+
+.mrifat-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.mrifat-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mrifat-detail-label {
+    font-weight: 600;
+    color: #646970;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.mrifat-detail-value {
+    color: #1d2327;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.mrifat-message-text {
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #c3c4c7;
+    line-height: 1.6;
+    color: #1d2327;
+}
+
+.mrifat-message-text h4 {
+    margin: 0 0 15px 0;
+    color: #1d2327;
+}
+
+.mrifat-action-button {
+    padding: 8px 15px;
+    border: 1px solid #c3c4c7;
+    border-radius: 3px;
+    background: #fff;
+    color: #2271b1;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.mrifat-action-button:hover {
+    background: #2271b1;
+    color: #fff;
+    border-color: #2271b1;
+}
+
+.mrifat-action-button.danger {
+    color: #d63638;
+}
+
+.mrifat-action-button.danger:hover {
+    background: #d63638;
+    color: #fff;
+    border-color: #d63638;
+}
+
+.mrifat-status-select {
+    padding: 6px 10px;
+    border: 1px solid #c3c4c7;
+    border-radius: 3px;
+    background: #fff;
+    font-size: 13px;
+}
+
+.mrifat-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.mrifat-loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c3c4c7;
+    border-top: 2px solid #2271b1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .mrifat-inbox-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 500px;
+    }
+
+    .mrifat-inbox-sidebar {
+        width: 100%;
+        max-height: 200px;
+    }
+
+    .mrifat-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mrifat-message-header {
+        padding: 15px 20px;
+    }
+
+    .mrifat-message-body {
+        padding: 20px;
+    }
+}
