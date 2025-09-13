@@ -8,12 +8,12 @@ class Mrifat_Contact_Form_Widget extends \Elementor\Widget_Base
 {
     public function get_name()
     {
-        return 'mrifat-contact-form';
+        return 'mrifat-advanced-form';
     }
 
     public function get_title()
     {
-        return esc_html__('Mrifat Contact Form', 'mrifat-extra');
+        return esc_html__('Mrifat Advanced Form', 'mrifat-extra');
     }
 
     public function get_icon()
@@ -28,230 +28,161 @@ class Mrifat_Contact_Form_Widget extends \Elementor\Widget_Base
 
     public function get_keywords()
     {
-        return ['contact', 'form', 'email', 'message', 'mrifat'];
+        return ['custom', 'form', 'contact', 'quote', 'booking', 'repeater', 'mrifat'];
     }
 
     protected function register_controls()
     {
-        // Content Section
+
+        // Form Fields Section (Repeater)
         $this->start_controls_section(
-            'content_section',
+            'form_fields_section',
             [
-                'label' => esc_html__('Form Fields', 'mrifat-extra'),
+                'label' => esc_html__('Form', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
-
         $this->add_control(
-            'show_business_name',
+            'form_name',
             [
-                'label' => esc_html__('Show Business Name Field', 'mrifat-extra'),
+                'label' => esc_html__('Form Name', 'mrifat-extra'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('New Form', 'mrifat-extra'),
+                'description' => esc_html__('Give your form a unique name (for tracking purposes).', 'mrifat-extra'),
+            ]
+        );
+        $repeater = new \Elementor\Repeater();
+
+        $repeater->add_control(
+            'field_type',
+            [
+                'label' => esc_html__('Field Type', 'mrifat-extra'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'text',
+                'options' => [
+                    'text' => esc_html__('Text', 'mrifat-extra'),
+                    'email' => esc_html__('Email', 'mrifat-extra'),
+                    'textarea' => esc_html__('Textarea', 'mrifat-extra'),
+                    'select' => esc_html__('Select', 'mrifat-extra'),
+                    'radio' => esc_html__('Radio', 'mrifat-extra'),
+                    'checkbox' => esc_html__('Checkbox', 'mrifat-extra'),
+                    'file' => esc_html__('File Upload', 'mrifat-extra'),
+                    'tel' => esc_html__('Phone', 'mrifat-extra'),
+                    'date' => esc_html__('Date', 'mrifat-extra'),
+                    'time' => esc_html__('Time', 'mrifat-extra'),
+                    'number' => esc_html__('Number', 'mrifat-extra'),
+                    'rating' => esc_html__('Star Rating', 'mrifat-extra'),
+                ],
+            ]
+        );
+
+        $repeater->add_control(
+            'field_label',
+            [
+                'label' => esc_html__('Label', 'mrifat-extra'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('New Field', 'mrifat-extra'),
+            ]
+        );
+
+        $repeater->add_control(
+            'field_name',
+            [
+                'label' => esc_html__('Field Name', 'mrifat-extra'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'description' => esc_html__('A unique name for the field (e.g., \'your_name\'). No spaces or special characters.', 'mrifat-extra'),
+            ]
+        );
+
+        $repeater->add_control(
+            'field_placeholder',
+            [
+                'label' => esc_html__('Placeholder', 'mrifat-extra'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+            ]
+        );
+
+        $repeater->add_control(
+            'is_required',
+            [
+                'label' => esc_html__('Required', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'mrifat-extra'),
-                'label_off' => esc_html__('Hide', 'mrifat-extra'),
                 'return_value' => 'yes',
-                'default' => 'yes',
+                'default' => 'no',
             ]
         );
 
-        $this->add_control(
-            'show_service_field',
+        $repeater->add_control(
+            'field_options',
             [
-                'label' => esc_html__('Show Service Field', 'mrifat-extra'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'mrifat-extra'),
-                'label_off' => esc_html__('Hide', 'mrifat-extra'),
-                'return_value' => 'yes',
-                'default' => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'show_timeline_field',
-            [
-                'label' => esc_html__('Show Timeline Field', 'mrifat-extra'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'mrifat-extra'),
-                'label_off' => esc_html__('Hide', 'mrifat-extra'),
-                'return_value' => 'yes',
-                'default' => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'show_audit_field',
-            [
-                'label' => esc_html__('Show Website Audit Field', 'mrifat-extra'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'mrifat-extra'),
-                'label_off' => esc_html__('Hide', 'mrifat-extra'),
-                'return_value' => 'yes',
-                'default' => 'yes',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Style Section
-        $this->start_controls_section(
-            'style_section',
-            [
-                'label' => esc_html__('Form Style', 'mrifat-extra'),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_responsive_control(
-            'form_padding',
-            [
-                'label' => esc_html__('Form Padding', 'mrifat-extra'),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .mrifat-contact-form' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                'label' => esc_html__('Options', 'mrifat-extra'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'description' => esc_html__('Enter each option on a new line.', 'mrifat-extra'),
+                'condition' => [
+                    'field_type' => ['select', 'radio', 'checkbox'],
                 ],
             ]
         );
 
-        $this->add_group_control(
-            \Elementor\Group_Control_Border::get_type(),
+        $repeater->add_responsive_control(
+            'field_width',
             [
-                'name' => 'form_border',
-                'selector' => '{{WRAPPER}} .mrifat-contact-form',
+                'label' => esc_html__('Field Width', 'mrifat-extra'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => '100',
+                'options' => [
+                    '25' => esc_html__('25%', 'mrifat-extra'),
+                    '33' => esc_html__('33%', 'mrifat-extra'),
+                    '50' => esc_html__('50%', 'mrifat-extra'),
+                    '66' => esc_html__('66%', 'mrifat-extra'),
+                    '75' => esc_html__('75%', 'mrifat-extra'),
+                    '100' => esc_html__('100%', 'mrifat-extra'),
+                ],
             ]
         );
 
         $this->add_control(
-            'form_border_radius',
+            'form_fields',
             [
-                'label' => esc_html__('Border Radius', 'mrifat-extra'),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .mrifat-contact-form' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                'label' => esc_html__('Fields', 'mrifat-extra'),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => $repeater->get_controls(),
+                'default' => [
+                    [
+                        'field_type' => 'text',
+                        'field_label' => esc_html__('Name', 'mrifat-extra'),
+                        'field_name' => 'name',
+                        'field_placeholder' => esc_html__('Your Name', 'mrifat-extra'),
+                        'is_required' => 'yes',
+                        'field_width' => '50',
+                    ],
+                    [
+                        'field_type' => 'email',
+                        'field_label' => esc_html__('Email', 'mrifat-extra'),
+                        'field_name' => 'email',
+                        'field_placeholder' => esc_html__('Your Email', 'mrifat-extra'),
+                        'is_required' => 'yes',
+                        'field_width' => '50',
+                    ],
+                    [
+                        'field_type' => 'textarea',
+                        'field_label' => esc_html__('Message', 'mrifat-extra'),
+                        'field_name' => 'message',
+                        'field_placeholder' => esc_html__('Your Message', 'mrifat-extra'),
+                        'is_required' => 'yes',
+                        'field_width' => '100',
+                    ],
                 ],
-            ]
-        );
-
-        $this->add_group_control(
-            \Elementor\Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'form_box_shadow',
-                'selector' => '{{WRAPPER}} .mrifat-contact-form',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Button Style Section
-        $this->start_controls_section(
-            'button_style_section',
-            [
-                'label' => esc_html__('Button Style', 'mrifat-extra'),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            \Elementor\Group_Control_Typography::get_type(),
-            [
-                'name' => 'button_typography',
-                'selector' => '{{WRAPPER}} .mrifat-submit-button',
-            ]
-        );
-
-        $this->start_controls_tabs('button_style_tabs');
-
-        $this->start_controls_tab(
-            'button_normal_tab',
-            [
-                'label' => esc_html__('Normal', 'mrifat-extra'),
+                'title_field' => '{{{ field_label }}}',
             ]
         );
 
         $this->add_control(
-            'button_text_color',
+            'submit_button_text',
             [
-                'label' => esc_html__('Text Color', 'mrifat-extra'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .mrifat-submit-button' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(),
-            [
-                'name' => 'button_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .mrifat-submit-button',
-            ]
-        );
-
-        $this->end_controls_tab();
-
-        $this->start_controls_tab(
-            'button_hover_tab',
-            [
-                'label' => esc_html__('Hover', 'mrifat-extra'),
-            ]
-        );
-
-        $this->add_control(
-            'button_hover_text_color',
-            [
-                'label' => esc_html__('Text Color', 'mrifat-extra'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .mrifat-submit-button:hover' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(),
-            [
-                'name' => 'button_hover_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .mrifat-submit-button:hover',
-            ]
-        );
-
-        $this->end_controls_tab();
-
-        $this->end_controls_tabs();
-
-        $this->add_responsive_control(
-            'button_padding',
-            [
-                'label' => esc_html__('Padding', 'mrifat-extra'),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .mrifat-submit-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_group_control(
-            \Elementor\Group_Control_Border::get_type(),
-            [
-                'name' => 'button_border',
-                'selector' => '{{WRAPPER}} .mrifat-submit-button',
-            ]
-        );
-
-        $this->add_control(
-            'button_border_radius',
-            [
-                'label' => esc_html__('Border Radius', 'mrifat-extra'),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .mrifat-submit-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                'label' => esc_html__('Submit Button Text', 'mrifat-extra'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Send Message', 'mrifat-extra'),
             ]
         );
 
@@ -261,116 +192,149 @@ class Mrifat_Contact_Form_Widget extends \Elementor\Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
+        $this->render_html_form($settings);
+    }
+
+    private function render_html_form($settings)
+    {
         $widget_id = $this->get_id();
+        $form_name = $settings['form_name'];
+        $has_file_upload = false;
+        foreach ($settings['form_fields'] as $field) {
+            if ($field['field_type'] === 'file') {
+                $has_file_upload = true;
+                break;
+            }
+        }
 
         $recaptcha_enabled = get_option('mrifat_recaptcha_enabled', 0);
         $recaptcha_site_key = get_option('mrifat_recaptcha_site_key', '');
+
         ?>
-        <div class="mrifat-contact-form" id="mrifat-contact-form-<?php echo esc_attr($widget_id); ?>">
-
-            <form id="mrifat-contact-form" method="post" class="mrifat-form">
+        <div class="mrifat-contact-form-wrapper">
+            <form id="mrifat-form-<?php echo esc_attr($widget_id); ?>" method="post" class="mrifat-form" <?php if ($has_file_upload)
+                   echo 'enctype="multipart/form-data"'; ?>>
+                <div class="mrifat-form-message"></div>
                 <?php wp_nonce_field('mrifat_contact_nonce', 'mrifat_contact_nonce'); ?>
+                <input type="hidden" name="form_name" value="<?php echo esc_attr($form_name); ?>">
+                <input type="hidden" name="action" value="mrifat_submit_contact">
 
                 <div class="mrifat-form-row">
-                    <div class="mrifat-form-group">
-                        <label for="mrifat_name">Name <span class="required">*</span></label>
-                        <input type="text" id="mrifat_name" name="name" placeholder="Your full name" required>
-                    </div>
-                    <div class="mrifat-form-group">
-                        <label for="mrifat_email">Email <span class="required">*</span></label>
-                        <input type="email" id="mrifat_email" name="email" placeholder="your@email.com" required>
-                    </div>
-                </div>
+                    <?php
+                    foreach ($settings['form_fields'] as $field) {
+                        $this->render_field($field);
+                    }
+                    ?>
 
-                <div class="mrifat-form-row">
-                    <?php if ($settings['show_business_name'] === 'yes'): ?>
-                        <div class="mrifat-form-group">
-                            <label for="mrifat_business_name">Your Business / Project Name</label>
-                            <input type="text" id="mrifat_business_name" name="business_name"
-                                placeholder="Your business or project name">
+                    <?php if ($recaptcha_enabled && !empty($recaptcha_site_key)): ?>
+                        <div class="mrifat-form-group mrifat-field-width-100">
+                            <div class="g-recaptcha" data-sitekey="<?php echo esc_attr($recaptcha_site_key); ?>"></div>
                         </div>
                     <?php endif; ?>
 
-                    <?php if ($settings['show_service_field'] === 'yes'): ?>
-                        <div class="mrifat-form-group">
-                            <label for="mrifat_service">Service</label>
-                            <select id="mrifat_service" name="service">
-                                <option value="">Select service</option>
-                                <option value="business-website-design">Business Website Design (WordPress)</option>
-                                <option value="business-tool-customization">Business Tool Customization & Automation</option>
-                                <option value="website-speed-fixes">Website Speed & Technical Fixes</option>
-                                <option value="shopify-ecommerce-design">Shopify Ecommerce Store Design</option>
-                                <option value="custom-laravel-ecommerce">Custom Laravel E-commerce App</option>
-                                <option value="ecommerce-website-wordpress">Ecommerce website design (WordPress)</option>
-                            </select>
-                        </div>
-                    <?php endif; ?>
-                </div>
-
-                <div class="mrifat-form-row">
-                    <div class="mrifat-form-group">
-                        <label for="mrifat_subject">Subject <span class="required">*</span></label>
-                        <input type="text" id="mrifat_subject" name="subject" placeholder="What's this about?" required>
+                    <div class="mrifat-form-group mrifat-field-width-100">
+                        <label class="mrifat-checkbox-label privacy-policy">
+                            <input type="checkbox" name="privacy_policy" required>
+                            <span>I accept the privacy policy <span class="required">*</span></span>
+                        </label>
                     </div>
 
-                    <?php if ($settings['show_timeline_field'] === 'yes'): ?>
-                        <div class="mrifat-form-group">
-                            <label for="mrifat_timeline">Timeline</label>
-                            <select id="mrifat_timeline" name="timeline">
-                                <option value="">Select timeline</option>
-                                <option value="asap">ASAP</option>
-                                <option value="1-2-weeks">1-2 weeks</option>
-                                <option value="1-month">1 month</option>
-                                <option value="2-3-months">2-3 months</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
-                        </div>
-                    <?php endif; ?>
-                </div>
-
-                <div class="mrifat-form-group">
-                    <label for="mrifat_message">Message <span class="required">*</span></label>
-                    <textarea id="mrifat_message" name="message" rows="6"
-                        placeholder="Tell me about your project, goals, and any specific requirements..." required></textarea>
-                </div>
-
-                <?php if ($settings['show_audit_field'] === 'yes'): ?>
-                    <div class="mrifat-form-group">
-                        <label class="mrifat-radio-label">Want a FREE website audit? (Recommended)</label>
-                        <div class="mrifat-radio-group">
-                            <label class="mrifat-radio-option">
-                                <input type="radio" name="website_audit" value="yes" checked>
-                                <span>Yes</span>
-                            </label>
-                            <label class="mrifat-radio-option">
-                                <input type="radio" name="website_audit" value="no">
-                                <span>No</span>
-                            </label>
-                        </div>
+                    <div class="mrifat-button-wrapper">
+                        <button type="submit" class="mrifat-submit-button">
+                            <span class="mrifat-button-text"><?php echo esc_html($settings['submit_button_text']); ?></span>
+                            <span class="mrifat-button-loading" style="display: none;">Sending...</span>
+                        </button>
                     </div>
-                <?php endif; ?>
-
-                <?php if ($recaptcha_enabled && !empty($recaptcha_site_key)): ?>
-                    <div class="mrifat-form-group">
-                        <div class="g-recaptcha" data-sitekey="<?php echo esc_attr($recaptcha_site_key); ?>"></div>
-                    </div>
-                <?php endif; ?>
-
-                <div class="mrifat-form-group">
-                    <label class="mrifat-checkbox-label">
-                        <input type="checkbox" name="privacy_policy" required>
-                        <span>I accept the privacy policy <span class="required">*</span></span>
-                    </label>
-                </div>
-
-                <div class="mrifat-button-wrapper">
-                    <button type="submit" class="mrifat-submit-button">
-                        <span class="mrifat-button-text">Send Message</span>
-                        <span class="mrifat-button-loading" style="display: none;">Sending...</span>
-                    </button>
                 </div>
             </form>
         </div>
         <?php
+    }
+
+    private function render_field($field)
+    {
+        $width_class = 'mrifat-field-width-' . ($field['field_width'] ?? '100');
+        $field_name = sanitize_key($field['field_name'] ?: $field['field_label']);
+        $required = $field['is_required'] === 'yes';
+
+        echo '<div class="mrifat-form-group ' . esc_attr($width_class) . '">';
+
+        $label = esc_html($field['field_label']);
+        $req_span = $required ? ' <span class="required">*</span>' : '';
+        echo '<label for="mrifat-field-' . esc_attr($field_name) . '">' . $label . $req_span . '</label>';
+
+        switch ($field['field_type']) {
+            case 'textarea':
+                $this->render_textarea_field($field_name, $field, $required);
+                break;
+            case 'select':
+            case 'radio':
+            case 'checkbox':
+                $this->render_options_field($field_name, $field, $required);
+                break;
+            case 'rating':
+                $this->render_rating_field($field_name, $field, $required);
+                break;
+            default:
+                $this->render_input_field($field_name, $field, $required);
+                break;
+        }
+
+        echo '</div>';
+    }
+
+    private function render_input_field($name, $field, $required)
+    {
+        $placeholder = esc_attr($field['field_placeholder']);
+        $req_attr = $required ? 'required' : '';
+        echo '<input type="' . esc_attr($field['field_type']) . '" id="mrifat-field-' . esc_attr($name) . '" name="' . esc_attr($name) . '" placeholder="' . $placeholder . '" ' . $req_attr . '>';
+    }
+
+    private function render_textarea_field($name, $field, $required)
+    {
+        $placeholder = esc_attr($field['field_placeholder']);
+        $req_attr = $required ? 'required' : '';
+        echo '<textarea id="mrifat-field-' . esc_attr($name) . '" name="' . esc_attr($name) . '" rows="6" placeholder="' . $placeholder . '" ' . $req_attr . '></textarea>';
+    }
+
+    private function render_options_field($name, $field, $required)
+    {
+        $options = explode("\n", trim($field['field_options']));
+        $type = $field['field_type'];
+        $req_attr = $required ? 'required' : '';
+
+        if ($type === 'select') {
+            echo '<select id="mrifat-field-' . esc_attr($name) . '" name="' . esc_attr($name) . '" ' . $req_attr . '>';
+            if ($field['field_placeholder']) {
+                echo '<option value="">' . esc_html($field['field_placeholder']) . '</option>';
+            }
+            foreach ($options as $option) {
+                $option_val = esc_attr(trim($option));
+                echo '<option value="' . $option_val . '">' . esc_html(trim($option)) . '</option>';
+            }
+            echo '</select>';
+        } else { // radio or checkbox
+            echo '<div class="mrifat-' . $type . '-group">';
+            $input_name = ($type === 'checkbox') ? esc_attr($name) . '[]' : esc_attr($name);
+            foreach ($options as $option) {
+                $option_val = esc_attr(trim($option));
+                echo '<label class="mrifat-' . $type . '-option">';
+                echo '<input type="' . $type . '" name="' . $input_name . '" value="' . $option_val . '" ' . $req_attr . '>';
+                echo '<span>' . esc_html(trim($option)) . '</span>';
+                echo '</label>';
+            }
+            echo '</div>';
+        }
+    }
+
+    private function render_rating_field($name, $field, $required)
+    {
+        $req_attr = $required ? 'required' : '';
+        echo '<div class="mrifat-rating-group">';
+        for ($i = 5; $i >= 1; $i--) {
+            echo '<input type="radio" id="rating-' . $i . '" name="' . esc_attr($name) . '" value="' . $i . '" ' . $req_attr . '>';
+            echo '<label for="rating-' . $i . '">&#9733;</label>';
+        }
+        echo '</div>';
     }
 }

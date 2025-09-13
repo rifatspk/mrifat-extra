@@ -7,23 +7,24 @@ window.onscroll = function () {
 // Contact Form JS 
 
 jQuery(document).ready(function ($) {
-    $('#mrifat-contact-form').on('submit', function (e) {
+    $('.mrifat-form').on('submit', function (e) {
         e.preventDefault();
 
         var form = $(this);
         var submitBtn = form.find('.mrifat-submit-button');
         var buttonText = submitBtn.find('.mrifat-button-text');
         var loadingText = submitBtn.find('.mrifat-button-loading');
+        var messageDiv = form.find('.mrifat-form-message');
 
         // Disable submit button
         submitBtn.prop('disabled', true);
         buttonText.hide();
         loadingText.show();
+        messageDiv.html('').removeClass('mrifat-error mrifat-success').hide();
 
         // Get form data
         var formData = new FormData(this);
-        formData.append('action', 'mrifat_submit_contact');
-        formData.append('nonce', mrifat_contact_ajax.nonce);
+        // The nonce is now part of the form data, so we don't need to append it separately.
 
         $.ajax({
             url: mrifat_contact_ajax.ajax_url,
@@ -33,11 +34,11 @@ jQuery(document).ready(function ($) {
             contentType: false,
             success: function (response) {
                 if (response.success) {
-                    // Show success message
+                    // Show success message and hide form
                     form.html('<div class="mrifat-success-message"><h3>Thank You!</h3><p>' + response.data + '</p></div>');
                 } else {
                     // Show error message
-                    showMessage(response.data, 'error');
+                    showMessage(response.data, 'error', messageDiv);
 
                     // Re-enable submit button
                     submitBtn.prop('disabled', false);
@@ -45,13 +46,13 @@ jQuery(document).ready(function ($) {
                     loadingText.hide();
 
                     // Reset reCAPTCHA if enabled
-                    if (typeof grecaptcha !== 'undefined') {
+                    if (typeof grecaptcha !== 'undefined' && form.find('.g-recaptcha').length) {
                         grecaptcha.reset();
                     }
                 }
             },
             error: function () {
-                showMessage('Something went wrong. Please try again.', 'error');
+                showMessage('Something went wrong. Please try again.', 'error', messageDiv);
 
                 // Re-enable submit button
                 submitBtn.prop('disabled', false);
@@ -59,25 +60,19 @@ jQuery(document).ready(function ($) {
                 loadingText.hide();
 
                 // Reset reCAPTCHA if enabled
-                if (typeof grecaptcha !== 'undefined') {
+                 if (typeof grecaptcha !== 'undefined' && form.find('.g-recaptcha').length) {
                     grecaptcha.reset();
                 }
             }
         });
     });
 
-    function showMessage(message, type) {
-        var messageDiv = '<div class="mrifat-form-message mrifat-' + type + '">' + message + '</div>';
-
-        // Remove existing messages
-        $('.mrifat-form-message').remove();
-
-        // Add new message
-        $('#mrifat-contact-form').prepend(messageDiv);
+    function showMessage(message, type, messageDiv) {
+        messageDiv.html(message).addClass('mrifat-' + type).fadeIn();
 
         // Auto-hide after 5 seconds
         setTimeout(function () {
-            $('.mrifat-form-message').fadeOut();
+            messageDiv.fadeOut();
         }, 5000);
     }
 });

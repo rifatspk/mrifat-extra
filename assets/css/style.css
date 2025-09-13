@@ -39,59 +39,39 @@ img.loading-lowres {
 }
 
 
-/*Contact Form Style */
-
-
-
-.mrifat-contact-form {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 30px;
-    background: #fff;
-    border-radius: 8px;
-}
-
-.mrifat-form-title {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 28px;
-    color: #333;
-}
-
-.mrifat-form-description {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #666;
-    font-size: 16px;
-}
-
+/* Advanced Form Widget Styles */
 .mrifat-form-row {
     display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 .mrifat-form-group {
-    flex: 1;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .mrifat-form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
     font-weight: 600;
     color: #333;
+    font-size: 0.9rem;
 }
 
 .mrifat-form-group input,
 .mrifat-form-group select,
 .mrifat-form-group textarea {
     width: 100%;
-    padding: 0 15px;
-    border: 2px solid #e1e5e9;
+    border: 1px solid #e1e5e9;
     border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    line-height: 1.5;
+    box-sizing: border-box;
 }
 
 .mrifat-form-group input:focus,
@@ -99,119 +79,215 @@ img.loading-lowres {
 .mrifat-form-group textarea:focus {
     outline: none;
     border-color: #007cba;
+    box-shadow: 0 0 0 3px rgba(0, 124, 186, 0.1);
 }
 
-.mrifat-radio-label {
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.mrifat-radio-group {
+.mrifat-radio-group,
+.mrifat-checkbox-group {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.mrifat-radio-option {
+.mrifat-form-group .privacy-policy input{
+    width: auto!important;
+    margin-right: 8px;
+}
+
+.mrifat-radio-option,
+.mrifat-checkbox-option {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     cursor: pointer;
     font-weight: normal;
 }
 
-.mrifat-radio-option input[type="radio"] {
+.mrifat-radio-option input,
+.mrifat-checkbox-option input {
     width: auto;
     margin: 0;
+    flex-shrink: 0;
 }
 
-.mrifat-checkbox-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+.mrifat-rating-group {
+    display: inline-flex;
+    flex-direction: row-reverse;
+}
+
+.mrifat-rating-group input[type="radio"] {
+    display: none;
+}
+
+.mrifat-rating-group label {
+    font-size: 1.5rem;
+    color: #ccc;
     cursor: pointer;
-    font-weight: normal;
+    transition: color 0.2s;
 }
 
-.mrifat-checkbox-label input[type="checkbox"] {
-    width: auto;
-    margin: 0;
-    margin-top: 2px;
+.mrifat-rating-group input[type="radio"]:checked~label,
+.mrifat-rating-group label:hover,
+.mrifat-rating-group label:hover~label {
+    color: #ffc107;
 }
 
 .mrifat-button-wrapper {
+    width: 100%;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.mrifat-submit-button {
-    background: #007cba;
-    color: white;
-    padding: 15px 40px;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    min-width: 200px;
+.mrifat-field-width-100 {
+    flex-basis: 100%;
 }
 
-.mrifat-submit-button:hover {
-    background: #005a87;
+.mrifat-field-width-75 {
+    flex-basis: 75%;
 }
 
-.mrifat-submit-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+.mrifat-field-width-66 {
+    flex-basis: 66.666%;
 }
 
-.required {
-    color: #e74c3c;
+.mrifat-field-width-50 {
+    flex-basis: 50%;
 }
 
-.mrifat-form-message {
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    font-weight: 600;
+.mrifat-field-width-33 {
+    flex-basis: 33.333%;
 }
 
-.mrifat-form-message.mrifat-error {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-.mrifat-success-message {
-    text-align: center;
-    padding: 40px;
-    background: #d4edda;
-    border: 1px solid #c3e6cb;
-    border-radius: 5px;
-    color: #155724;
-}
-
-.mrifat-success-message h3 {
-    margin-top: 0;
-    color: #155724;
+.mrifat-field-width-25 {
+    flex-basis: 25%;
 }
 
 @media (max-width: 768px) {
-    .mrifat-form-row {
-        flex-direction: column;
-        gap: 0;
-    }
 
-    .mrifat-contact-form {
-        padding: 20px;
-    }
-
-    .mrifat-radio-group {
-        flex-direction: column;
-        gap: 10px;
+    .mrifat-field-width-100,
+    .mrifat-field-width-75,
+    .mrifat-field-width-66,
+    .mrifat-field-width-50,
+    .mrifat-field-width-33,
+    .mrifat-field-width-25 {
+        flex-basis: 100%;
     }
 }
+
+
+
+/* WhatsApp CTA inside Astra Nav */
+.info-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 8px;
+    color: inherit;
+    font-family: inherit;
+}
+
+/* Icon */
+.info-btn .icon {
+    font-size: 36px;
+    flex-shrink: 0;
+    color: #25D366;
+}
+
+/* Text container */
+.info-btn .info-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.info-btn br {
+    display: none !important;
+}
+
+
+.info-btn .info-text small {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Main number (bottom line) */
+.info-btn .info-text strong {
+    font-size: 18px;
+    font-weight: 600;
+    color: inherit;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .info-btn .icon {
+        font-size: 32px;
+    }
+
+    .info-btn .info-text strong {
+        font-size: 13px;
+    }
+}
+
+
+/* WhatApp Button Styles */
+
+.mrifat-whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.mrifat-whatsapp-bottom-left {
+    left: 20px;
+}
+
+.mrifat-whatsapp-bottom-right {
+    right: 20px;
+}
+
+.mrifat-whatsapp-button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+}
+
+.mrifat-whatsapp-button a:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+@media (max-width: 768px) {
+    .mrifat-whatsapp-button {
+        bottom: 15px;
+    }
+
+    .mrifat-whatsapp-bottom-left {
+        left: 15px;
+    }
+
+    .mrifat-whatsapp-bottom-right {
+        right: 15px;
+    }
+
+    .mrifat-whatsapp-button a {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
 
 /*Project Filter Style */
 
@@ -272,12 +348,14 @@ img.loading-lowres {
     bottom: 20px;
 }
 
-.project-content .project-box .live-preview {
+.project-content .project-box .live-preview i{
     color: #fff;
     font-size: 20px;
     border-radius: 50%;
     background: #05A393;
-    padding: 0.575rem;
+    padding: 0.75rem;
+    height: 50px;
+    width: 50px;
     position: absolute;
     right: 30px;
     top: -30px;
@@ -474,64 +552,6 @@ img.loading-lowres {
 
 .widget.widget_about_me_widget .about-me {
     margin-bottom: 0;
-}
-
-
-
-/* WhatApp Button Styles */
-
-.mrifat-whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    z-index: 9999;
-    transition: all 0.3s ease;
-}
-
-.mrifat-whatsapp-bottom-left {
-    left: 20px;
-}
-
-.mrifat-whatsapp-bottom-right {
-    right: 20px;
-}
-
-.mrifat-whatsapp-button a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    background-color: #25D366;
-    border-radius: 50%;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-    transition: all 0.3s ease;
-}
-
-.mrifat-whatsapp-button a:hover {
-    background-color: #128C7E;
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-}
-
-@media (max-width: 768px) {
-    .mrifat-whatsapp-button {
-        bottom: 15px;
-    }
-
-    .mrifat-whatsapp-bottom-left {
-        left: 15px;
-    }
-
-    .mrifat-whatsapp-bottom-right {
-        right: 15px;
-    }
-
-    .mrifat-whatsapp-button a {
-        width: 50px;
-        height: 50px;
-    }
 }
 
 /* Post Carousel Styles  */

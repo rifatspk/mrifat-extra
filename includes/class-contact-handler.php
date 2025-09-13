@@ -36,55 +36,70 @@ class Mrifat_Extra_Form_Handler
 
     public function handle_form_submission()
     {
-        check_ajax_referer('mrifat_contact_nonce', 'nonce');
+        check_ajax_referer('mrifat_contact_nonce', 'mrifat_contact_nonce');
 
-        $name = sanitize_text_field($_POST['name']);
-        $email = sanitize_email($_POST['email']);
-        $business_name = sanitize_text_field($_POST['business_name']);
-        $service = sanitize_text_field($_POST['service']);
-        $subject = sanitize_text_field($_POST['subject']);
-        $timeline = sanitize_text_field($_POST['timeline']);
-        $message = sanitize_textarea_field($_POST['message']);
-        $website_audit = sanitize_text_field($_POST['website_audit']);
-        $privacy_policy = isset($_POST['privacy_policy']) ? 'yes' : 'no';
-
-        // Validation
-        if (empty($name) || empty($email) || empty($subject) || empty($message)) {
-            wp_send_json_error('Please fill in all required fields.');
-        }
-
-        if (!is_email($email)) {
-            wp_send_json_error('Please enter a valid email address.');
-        }
-
-        if ($privacy_policy !== 'yes') {
+        // Basic validation
+        if (!isset($_POST['privacy_policy']) || $_POST['privacy_policy'] !== 'on') {
             wp_send_json_error('You must accept the privacy policy.');
         }
 
         // reCAPTCHA validation
         if (get_option('mrifat_recaptcha_enabled', 0)) {
-            $recaptcha_response = $_POST['g-recaptcha-response'];
-
-            if (empty($recaptcha_response)) {
+            if (empty($_POST['g-recaptcha-response'])) {
                 wp_send_json_error('Please complete the reCAPTCHA verification.');
             }
-
-            if (!$this->verify_recaptcha($recaptcha_response)) {
+            if (!$this->verify_recaptcha($_POST['g-recaptcha-response'])) {
                 wp_send_json_error('reCAPTCHA verification failed. Please try again.');
             }
         }
 
-        // Prepare data for database
+        $form_name = sanitize_text_field($_POST['form_name'] ?? 'Unnamed Form');
+        $email_body = "You have received a new submission from the '" . $form_name . "' form.\n\n";
+        $submitted_data = [];
+        $ignore_fields = ['action', 'mrifat_contact_nonce', '_wp_http_referer', 'form_name', 'g-recaptcha-response', 'privacy_policy'];
+
+        // Loop through all submitted fields
+        foreach ($_POST as $key => $value) {
+            if (in_array($key, $ignore_fields)) {
+                continue;
+            }
+
+            $label = ucwords(str_replace('_', ' ', $key));
+            if (is_array($value)) {
+                $sanitized_value = implode(', ', array_map('sanitize_text_field', $value));
+            } else {
+                $sanitized_value = sanitize_textarea_field($value);
+            }
+
+            $submitted_data[$key] = $sanitized_value;
+            $email_body .= esc_html($label) . ": " . esc_html($sanitized_value) . "\n";
+        }
+
+        // Find a required email field for reply-to header
+        $reply_to_email = get_option('admin_email');
+        if (!empty($submitted_data['email'])) {
+             if (is_email($submitted_data['email'])) {
+                $reply_to_email = $submitted_data['email'];
+             }
+        } else {
+            // Fallback to find any field with 'email' in the name
+            foreach($submitted_data as $key => $value) {
+                if (strpos($key, 'email') !== false && is_email($value)) {
+                    $reply_to_email = $value;
+                    break;
+                }
+            }
+        }
+        
+        $name = $submitted_data['name'] ?? 'N/A';
+
+        // Prepare data for database (storing all dynamic fields in the message body)
         $contact_data = [
             'name' => $name,
-            'email' => $email,
-            'business_name' => $business_name,
-            'service' => $service,
-            'subject' => $subject,
-            'timeline' => $timeline,
-            'message' => $message,
-            'website_audit' => $website_audit,
-            'privacy_policy' => $privacy_policy,
+            'email' => $reply_to_email,
+            'subject' => 'Submission from ' . $form_name,
+            'message' => $email_body, // Store the full submission body
+            'privacy_policy' => 'yes',
             'ip_address' => $_SERVER['REMOTE_ADDR'],
             'user_agent' => $_SERVER['HTTP_USER_AGENT'],
             'created_at' => current_time('mysql'),
@@ -94,11 +109,9 @@ class Mrifat_Extra_Form_Handler
         $contact_id = $this->database->insert_contact($contact_data);
 
         if ($contact_id) {
-            // Send email notification
             if (get_option('mrifat_email_notifications', 1)) {
-                $this->send_email_notification($contact_data, $contact_id);
+                $this->send_email_notification($contact_data, $reply_to_email, $name);
             }
-
             wp_send_json_success('Thank you for your message. We will get back to you soon!');
         } else {
             wp_send_json_error('Sorry, there was an error submitting your message. Please try again.');
@@ -108,64 +121,35 @@ class Mrifat_Extra_Form_Handler
     private function verify_recaptcha($response)
     {
         $secret_key = get_option('mrifat_recaptcha_secret_key');
+        if (empty($secret_key)) return false;
 
-        if (empty($secret_key)) {
-            return false;
-        }
-
-        $url = 'https://www.google.com/recaptcha/api/siteverify';
-        $data = [
-            'secret' => $secret_key,
-            'response' => $response,
-            'remoteip' => $_SERVER['REMOTE_ADDR']
-        ];
-
-        $options = [
-            'body' => $data,
-            'timeout' => 10,
-            'headers' => [
-                'Content-Type' => 'application/x-www-form-urlencoded'
+        $response = wp_remote_post('https://www.google.com/recaptcha/api/siteverify', [
+            'body' => [
+                'secret' => $secret_key,
+                'response' => $response,
+                'remoteip' => $_SERVER['REMOTE_ADDR']
             ]
-        ];
+        ]);
 
-        $response = wp_remote_post($url, $options);
+        if (is_wp_error($response)) return false;
 
-        if (is_wp_error($response)) {
-            return false;
-        }
-
-        $body = wp_remote_retrieve_body($response);
-        $result = json_decode($body, true);
-
+        $result = json_decode(wp_remote_retrieve_body($response), true);
         return isset($result['success']) && $result['success'] === true;
     }
 
-    private function send_email_notification($contact_data, $contact_id)
+    private function send_email_notification($contact_data, $reply_to_email, $reply_to_name)
     {
         $admin_email = get_option('mrifat_admin_email', get_option('admin_email'));
         $site_name = get_bloginfo('name');
-
-        $subject = 'New Contact Form Submission - ' . $contact_data['subject'];
-
-        $message = "You have received a new contact form submission.\n\n";
-        $message .= "Name: " . $contact_data['name'] . "\n";
-        $message .= "Email: " . $contact_data['email'] . "\n";
-        $message .= "Business/Project: " . $contact_data['business_name'] . "\n";
-        $message .= "Service: " . $contact_data['service'] . "\n";
-        $message .= "Subject: " . $contact_data['subject'] . "\n";
-        $message .= "Timeline: " . $contact_data['timeline'] . "\n";
-        $message .= "Website Audit: " . $contact_data['website_audit'] . "\n";
-        $message .= "Message:\n" . $contact_data['message'] . "\n\n";
-        $message .= "IP Address: " . $contact_data['ip_address'] . "\n";
-        $message .= "Submitted on: " . $contact_data['created_at'] . "\n\n";
-        $message .= "View all contacts: " . admin_url('admin.php?page=mrifat-contacts');
+        $subject = 'New Submission from ' . $site_name . ': ' . $contact_data['subject'];
 
         $headers = [
             'Content-Type: text/plain; charset=UTF-8',
             'From: ' . $site_name . ' <' . get_option('admin_email') . '>',
-            'Reply-To: ' . $contact_data['name'] . ' <' . $contact_data['email'] . '>'
+            'Reply-To: ' . $reply_to_name . ' <' . $reply_to_email . '>'
         ];
 
-        wp_mail($admin_email, $subject, $message, $headers);
+        // The message is already pre-formatted in the main handler
+        wp_mail($admin_email, $subject, $contact_data['message'], $headers);
     }
 }

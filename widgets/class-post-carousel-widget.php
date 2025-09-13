@@ -17,7 +17,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
 
     public function get_title()
     {
-        return esc_html__('Post Carousel', 'post-carousel');
+        return esc_html__('Post Carousel', 'mrifat-extra');
     }
 
     public function get_icon()
@@ -52,7 +52,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'content_section',
             [
-                'label' => esc_html__('Content', 'post-carousel'),
+                'label' => esc_html__('Content', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -60,7 +60,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'posts_per_page',
             [
-                'label' => esc_html__('Number of Posts', 'post-carousel'),
+                'label' => esc_html__('Number of Posts', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 6,
                 'min' => 1,
@@ -71,7 +71,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'post_type',
             [
-                'label' => esc_html__('Post Type', 'post-carousel'),
+                'label' => esc_html__('Post Type', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'post',
                 'options' => $this->get_post_types(),
@@ -81,14 +81,14 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'orderby',
             [
-                'label' => esc_html__('Order By', 'post-carousel'),
+                'label' => esc_html__('Order By', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'date',
                 'options' => [
-                    'date' => esc_html__('Date', 'post-carousel'),
-                    'title' => esc_html__('Title', 'post-carousel'),
-                    'menu_order' => esc_html__('Menu Order', 'post-carousel'),
-                    'rand' => esc_html__('Random', 'post-carousel'),
+                    'date' => esc_html__('Date', 'mrifat-extra'),
+                    'title' => esc_html__('Title', 'mrifat-extra'),
+                    'menu_order' => esc_html__('Menu Order', 'mrifat-extra'),
+                    'rand' => esc_html__('Random', 'mrifat-extra'),
                 ],
             ]
         );
@@ -96,12 +96,12 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'order',
             [
-                'label' => esc_html__('Order', 'post-carousel'),
+                'label' => esc_html__('Order', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'DESC',
                 'options' => [
-                    'ASC' => esc_html__('Ascending', 'post-carousel'),
-                    'DESC' => esc_html__('Descending', 'post-carousel'),
+                    'ASC' => esc_html__('Ascending', 'mrifat-extra'),
+                    'DESC' => esc_html__('Descending', 'mrifat-extra'),
                 ],
             ]
         );
@@ -109,10 +109,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_image',
             [
-                'label' => esc_html__('Show Featured Image', 'post-carousel'),
+                'label' => esc_html__('Show Featured Image', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'post-carousel'),
-                'label_off' => esc_html__('Hide', 'post-carousel'),
+                'label_on' => esc_html__('Show', 'mrifat-extra'),
+                'label_off' => esc_html__('Hide', 'mrifat-extra'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -121,10 +121,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_title',
             [
-                'label' => esc_html__('Show Title', 'post-carousel'),
+                'label' => esc_html__('Show Title', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'post-carousel'),
-                'label_off' => esc_html__('Hide', 'post-carousel'),
+                'label_on' => esc_html__('Show', 'mrifat-extra'),
+                'label_off' => esc_html__('Hide', 'mrifat-extra'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -133,10 +133,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_excerpt',
             [
-                'label' => esc_html__('Show Excerpt', 'post-carousel'),
+                'label' => esc_html__('Show Excerpt', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'post-carousel'),
-                'label_off' => esc_html__('Hide', 'post-carousel'),
+                'label_on' => esc_html__('Show', 'mrifat-extra'),
+                'label_off' => esc_html__('Hide', 'mrifat-extra'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -145,7 +145,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'excerpt_length',
             [
-                'label' => esc_html__('Excerpt Length', 'post-carousel'),
+                'label' => esc_html__('Excerpt Length', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 20,
                 'condition' => [
@@ -157,10 +157,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_date',
             [
-                'label' => esc_html__('Show Date', 'post-carousel'),
+                'label' => esc_html__('Show Date', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'post-carousel'),
-                'label_off' => esc_html__('Hide', 'post-carousel'),
+                'label_on' => esc_html__('Show', 'mrifat-extra'),
+                'label_off' => esc_html__('Hide', 'mrifat-extra'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -169,10 +169,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_author',
             [
-                'label' => esc_html__('Show Author', 'post-carousel'),
+                'label' => esc_html__('Show Author', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'post-carousel'),
-                'label_off' => esc_html__('Hide', 'post-carousel'),
+                'label_on' => esc_html__('Show', 'mrifat-extra'),
+                'label_off' => esc_html__('Hide', 'mrifat-extra'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -181,10 +181,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_read_more',
             [
-                'label' => esc_html__('Show Read More', 'post-carousel'),
+                'label' => esc_html__('Show Read More', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'post-carousel'),
-                'label_off' => esc_html__('Hide', 'post-carousel'),
+                'label_on' => esc_html__('Show', 'mrifat-extra'),
+                'label_off' => esc_html__('Hide', 'mrifat-extra'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -193,9 +193,9 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'read_more_text',
             [
-                'label' => esc_html__('Read More Text', 'post-carousel'),
+                'label' => esc_html__('Read More Text', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__('Read More', 'post-carousel'),
+                'default' => esc_html__('Read More', 'mrifat-extra'),
                 'condition' => [
                     'show_read_more' => 'yes',
                 ],
@@ -208,7 +208,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'carousel_settings',
             [
-                'label' => esc_html__('Carousel Settings', 'post-carousel'),
+                'label' => esc_html__('Carousel Settings', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -216,7 +216,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'slides_to_show_desktop',
             [
-                'label' => esc_html__('Slides to Show (Desktop)', 'post-carousel'),
+                'label' => esc_html__('Slides to Show (Desktop)', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 1,
                 'max' => 10,
@@ -228,7 +228,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'slides_to_show_tablet',
             [
-                'label' => esc_html__('Slides to Show (Tablet)', 'post-carousel'),
+                'label' => esc_html__('Slides to Show (Tablet)', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 1,
                 'max' => 10,
@@ -240,7 +240,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'slides_to_show_mobile',
             [
-                'label' => esc_html__('Slides to Show (Mobile)', 'post-carousel'),
+                'label' => esc_html__('Slides to Show (Mobile)', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 1,
                 'max' => 10,
@@ -252,7 +252,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'slide_spacing',
             [
-                'label' => esc_html__('Spacing Between Slides', 'post-carousel'),
+                'label' => esc_html__('Spacing Between Slides', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -272,10 +272,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'enable_navigation',
             [
-                'label' => esc_html__('Enable Navigation Arrows', 'post-carousel'),
+                'label' => esc_html__('Enable Navigation Arrows', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'post-carousel'),
-                'label_off' => esc_html__('Hide', 'post-carousel'),
+                'label_on' => esc_html__('Show', 'mrifat-extra'),
+                'label_off' => esc_html__('Hide', 'mrifat-extra'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -284,10 +284,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'enable_pagination',
             [
-                'label' => esc_html__('Enable Dots', 'post-carousel'),
+                'label' => esc_html__('Enable Dots', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'post-carousel'),
-                'label_off' => esc_html__('Hide', 'post-carousel'),
+                'label_on' => esc_html__('Show', 'mrifat-extra'),
+                'label_off' => esc_html__('Hide', 'mrifat-extra'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -296,10 +296,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'autoplay',
             [
-                'label' => esc_html__('Autoplay', 'post-carousel'),
+                'label' => esc_html__('Autoplay', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'post-carousel'),
-                'label_off' => esc_html__('No', 'post-carousel'),
+                'label_on' => esc_html__('Yes', 'mrifat-extra'),
+                'label_off' => esc_html__('No', 'mrifat-extra'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -308,7 +308,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'autoplay_delay',
             [
-                'label' => esc_html__('Autoplay Delay (ms)', 'post-carousel'),
+                'label' => esc_html__('Autoplay Delay (ms)', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 3000,
                 'condition' => [
@@ -323,7 +323,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'layout_style_section',
             [
-                'label' => esc_html__('Layout', 'post-carousel'),
+                'label' => esc_html__('Layout', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -331,7 +331,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'card_gap',
             [
-                'label' => esc_html__('Gap Between Cards', 'post-carousel'),
+                'label' => esc_html__('Gap Between Cards', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
                 'range' => [
@@ -356,7 +356,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'card_style_section',
             [
-                'label' => esc_html__('Card Style', 'post-carousel'),
+                'label' => esc_html__('Card Style', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -364,7 +364,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'card_height',
             [
-                'label' => esc_html__('Card Height', 'post-carousel'),
+                'label' => esc_html__('Card Height', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px', '%', 'vh'],
                 'range' => [
@@ -399,7 +399,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'card_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'post-carousel'),
+                'label' => esc_html__('Border Radius', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -419,7 +419,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'card_padding',
             [
-                'label' => esc_html__('Padding', 'post-carousel'),
+                'label' => esc_html__('Padding', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -434,7 +434,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'image_style_section',
             [
-                'label' => esc_html__('Image Style', 'post-carousel'),
+                'label' => esc_html__('Image Style', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_image' => 'yes',
@@ -445,7 +445,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'image_height',
             [
-                'label' => esc_html__('Image Height', 'post-carousel'),
+                'label' => esc_html__('Image Height', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
@@ -467,13 +467,13 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'image_object_fit',
             [
-                'label' => esc_html__('Object Fit', 'post-carousel'),
+                'label' => esc_html__('Object Fit', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'cover',
                 'options' => [
-                    'cover' => esc_html__('Cover', 'post-carousel'),
-                    'contain' => esc_html__('Contain', 'post-carousel'),
-                    'fill' => esc_html__('Fill', 'post-carousel'),
+                    'cover' => esc_html__('Cover', 'mrifat-extra'),
+                    'contain' => esc_html__('Contain', 'mrifat-extra'),
+                    'fill' => esc_html__('Fill', 'mrifat-extra'),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .post-image img' => 'object-fit: {{VALUE}};',
@@ -492,7 +492,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'image_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'post-carousel'),
+                'label' => esc_html__('Border Radius', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -507,7 +507,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'category_style_section',
             [
-                'label' => esc_html__('Category Style', 'post-carousel'),
+                'label' => esc_html__('Category Style', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_read_more' => 'yes',
@@ -528,14 +528,14 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_tab(
             'category_normal_tab',
             [
-                'label' => esc_html__('Normal', 'post-carousel'),
+                'label' => esc_html__('Normal', 'mrifat-extra'),
             ]
         );
 
         $this->add_control(
             'category_color',
             [
-                'label' => esc_html__('Text Color', 'post-carousel'),
+                'label' => esc_html__('Text Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .category a' => 'color: {{VALUE}};',
@@ -565,14 +565,14 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_tab(
             'category_hover_tab',
             [
-                'label' => esc_html__('Hover', 'post-carousel'),
+                'label' => esc_html__('Hover', 'mrifat-extra'),
             ]
         );
 
         $this->add_control(
             'category_hover_color',
             [
-                'label' => esc_html__('Text Color', 'post-carousel'),
+                'label' => esc_html__('Text Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .category a:hover' => 'color: {{VALUE}};',
@@ -592,7 +592,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'category_hover_border_color',
             [
-                'label' => esc_html__('Border Color', 'post-carousel'),
+                'label' => esc_html__('Border Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .category a:hover' => 'border-color: {{VALUE}};',
@@ -607,7 +607,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'category_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'post-carousel'),
+                'label' => esc_html__('Border Radius', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -619,7 +619,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'category_padding',
             [
-                'label' => esc_html__('Padding', 'post-carousel'),
+                'label' => esc_html__('Padding', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -631,7 +631,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'category_margin',
             [
-                'label' => esc_html__('Margin', 'post-carousel'),
+                'label' => esc_html__('Margin', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -647,7 +647,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'title_style_section',
             [
-                'label' => esc_html__('Title Style', 'post-carousel'),
+                'label' => esc_html__('Title Style', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_title' => 'yes',
@@ -666,7 +666,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'title_color',
             [
-                'label' => esc_html__('Color', 'post-carousel'),
+                'label' => esc_html__('Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .post-title a' => 'color: {{VALUE}};',
@@ -677,7 +677,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'title_hover_color',
             [
-                'label' => esc_html__('Hover Color', 'post-carousel'),
+                'label' => esc_html__('Hover Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .post-title a:hover' => 'color: {{VALUE}};',
@@ -688,7 +688,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'title_margin',
             [
-                'label' => esc_html__('Margin', 'post-carousel'),
+                'label' => esc_html__('Margin', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -703,7 +703,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'excerpt_style_section',
             [
-                'label' => esc_html__('Excerpt Style', 'post-carousel'),
+                'label' => esc_html__('Excerpt Style', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_excerpt' => 'yes',
@@ -722,7 +722,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'excerpt_color',
             [
-                'label' => esc_html__('Color', 'post-carousel'),
+                'label' => esc_html__('Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .excerpt' => 'color: {{VALUE}};',
@@ -733,7 +733,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'excerpt_margin',
             [
-                'label' => esc_html__('Margin', 'post-carousel'),
+                'label' => esc_html__('Margin', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -748,7 +748,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'meta_style_section',
             [
-                'label' => esc_html__('Meta Style', 'post-carousel'),
+                'label' => esc_html__('Meta Style', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -764,7 +764,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'meta_color',
             [
-                'label' => esc_html__('Color', 'post-carousel'),
+                'label' => esc_html__('Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .meta' => 'color: {{VALUE}};',
@@ -775,7 +775,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'meta_margin',
             [
-                'label' => esc_html__('Margin', 'post-carousel'),
+                'label' => esc_html__('Margin', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -790,7 +790,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'button_style_section',
             [
-                'label' => esc_html__('Read More', 'post-carousel'),
+                'label' => esc_html__('Read More', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_read_more' => 'yes',
@@ -811,14 +811,14 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_tab(
             'button_normal_tab',
             [
-                'label' => esc_html__('Normal', 'post-carousel'),
+                'label' => esc_html__('Normal', 'mrifat-extra'),
             ]
         );
 
         $this->add_control(
             'button_color',
             [
-                'label' => esc_html__('Text Color', 'post-carousel'),
+                'label' => esc_html__('Text Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .read-btn' => 'color: {{VALUE}};',
@@ -848,14 +848,14 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_tab(
             'button_hover_tab',
             [
-                'label' => esc_html__('Hover', 'post-carousel'),
+                'label' => esc_html__('Hover', 'mrifat-extra'),
             ]
         );
 
         $this->add_control(
             'button_hover_color',
             [
-                'label' => esc_html__('Text Color', 'post-carousel'),
+                'label' => esc_html__('Text Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .read-btn:hover' => 'color: {{VALUE}};',
@@ -875,7 +875,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'button_hover_border_color',
             [
-                'label' => esc_html__('Border Color', 'post-carousel'),
+                'label' => esc_html__('Border Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .read-btn:hover' => 'border-color: {{VALUE}};',
@@ -890,7 +890,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'button_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'post-carousel'),
+                'label' => esc_html__('Border Radius', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -902,7 +902,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'button_padding',
             [
-                'label' => esc_html__('Padding', 'post-carousel'),
+                'label' => esc_html__('Padding', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -914,7 +914,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'button_margin',
             [
-                'label' => esc_html__('Margin', 'post-carousel'),
+                'label' => esc_html__('Margin', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -928,7 +928,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'style_navigation',
             [
-                'label' => esc_html__('Navigation Arrows', 'portfolio-filter'),
+                'label' => esc_html__('Navigation Arrows', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'enable_navigation' => 'yes',
@@ -939,7 +939,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'nav_size',
             [
-                'label' => esc_html__('Arrow Size', 'portfolio-filter'),
+                'label' => esc_html__('Arrow Size', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -963,7 +963,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'nav_color',
             [
-                'label' => esc_html__('Arrow Color', 'portfolio-filter'),
+                'label' => esc_html__('Arrow Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#007cba',
                 'selectors' => [
@@ -975,7 +975,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'nav_bg_color',
             [
-                'label' => esc_html__('Arrow Background', 'portfolio-filter'),
+                'label' => esc_html__('Arrow Background', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => 'rgba(255,255,255,0.8)',
                 'selectors' => [
@@ -987,7 +987,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'nav_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'portfolio-filter'),
+                'label' => esc_html__('Border Radius', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
@@ -1009,7 +1009,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'style_pagination',
             [
-                'label' => esc_html__('Dots', 'portfolio-filter'),
+                'label' => esc_html__('Dots', 'mrifat-extra'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'enable_pagination' => 'yes',
@@ -1020,7 +1020,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'dot_size',
             [
-                'label' => esc_html__('Dot Size', 'portfolio-filter'),
+                'label' => esc_html__('Dot Size', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -1043,7 +1043,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'dot_color',
             [
-                'label' => esc_html__('Dot Color', 'portfolio-filter'),
+                'label' => esc_html__('Dot Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => 'rgba(0,0,0,0.3)',
                 'selectors' => [
@@ -1055,7 +1055,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'dot_active_color',
             [
-                'label' => esc_html__('Active Dot Color', 'portfolio-filter'),
+                'label' => esc_html__('Active Dot Color', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#007cba',
                 'selectors' => [
@@ -1067,7 +1067,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'dot_spacing',
             [
-                'label' => esc_html__('Spacing Between Dots', 'portfolio-filter'),
+                'label' => esc_html__('Spacing Between Dots', 'mrifat-extra'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -1168,7 +1168,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
 
         if (!$query->have_posts()) {
             if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
-                echo '<p>' . esc_html__('No posts found. Please check your query settings.', 'post-carousel') . '</p>';
+                echo '<p>' . esc_html__('No posts found. Please check your query settings.', 'mrifat-extra') . '</p>';
             }
             return;
         }
