@@ -119,7 +119,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'carousel_settings',
             [
-                'label' => esc_html__('Carousel Settings', 'textdomain'),
+                'label' => esc_html__('Carousel Settings', 'portfolio-filter'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -127,7 +127,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'slides_to_show_desktop',
             [
-                'label' => esc_html__('Slides to Show (Desktop)', 'textdomain'),
+                'label' => esc_html__('Slides to Show (Desktop)', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 1,
                 'max' => 10,
@@ -139,7 +139,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'slides_to_show_tablet',
             [
-                'label' => esc_html__('Slides to Show (Tablet)', 'textdomain'),
+                'label' => esc_html__('Slides to Show (Tablet)', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 1,
                 'max' => 10,
@@ -151,7 +151,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'slides_to_show_mobile',
             [
-                'label' => esc_html__('Slides to Show (Mobile)', 'textdomain'),
+                'label' => esc_html__('Slides to Show (Mobile)', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 1,
                 'max' => 10,
@@ -163,7 +163,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'slide_spacing',
             [
-                'label' => esc_html__('Spacing Between Slides', 'textdomain'),
+                'label' => esc_html__('Spacing Between Slides', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -183,10 +183,10 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'enable_navigation',
             [
-                'label' => esc_html__('Enable Navigation Arrows', 'textdomain'),
+                'label' => esc_html__('Enable Navigation Arrows', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'textdomain'),
-                'label_off' => esc_html__('Hide', 'textdomain'),
+                'label_on' => esc_html__('Show', 'portfolio-filter'),
+                'label_off' => esc_html__('Hide', 'portfolio-filter'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -195,10 +195,10 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'enable_pagination',
             [
-                'label' => esc_html__('Enable Dots', 'textdomain'),
+                'label' => esc_html__('Enable Dots', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'textdomain'),
-                'label_off' => esc_html__('Hide', 'textdomain'),
+                'label_on' => esc_html__('Show', 'portfolio-filter'),
+                'label_off' => esc_html__('Hide', 'portfolio-filter'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -207,10 +207,10 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'autoplay',
             [
-                'label' => esc_html__('Autoplay', 'textdomain'),
+                'label' => esc_html__('Autoplay', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'textdomain'),
-                'label_off' => esc_html__('No', 'textdomain'),
+                'label_on' => esc_html__('Yes', 'portfolio-filter'),
+                'label_off' => esc_html__('No', 'portfolio-filter'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -219,7 +219,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'autoplay_delay',
             [
-                'label' => esc_html__('Autoplay Delay (ms)', 'textdomain'),
+                'label' => esc_html__('Autoplay Delay (ms)', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 3000,
                 'condition' => [
@@ -248,7 +248,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 100,
-                        'max' => 400,
+                        'max' => 900,
                     ],
                 ],
                 'selectors' => [
@@ -392,7 +392,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'style_navigation',
             [
-                'label' => esc_html__('Navigation Arrows', 'textdomain'),
+                'label' => esc_html__('Navigation Arrows', 'portfolio-filter'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'enable_navigation' => 'yes',
@@ -403,7 +403,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'nav_size',
             [
-                'label' => esc_html__('Arrow Size', 'textdomain'),
+                'label' => esc_html__('Arrow Size', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -427,7 +427,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'nav_color',
             [
-                'label' => esc_html__('Arrow Color', 'textdomain'),
+                'label' => esc_html__('Arrow Color', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#007cba',
                 'selectors' => [
@@ -439,7 +439,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'nav_bg_color',
             [
-                'label' => esc_html__('Arrow Background', 'textdomain'),
+                'label' => esc_html__('Arrow Background', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => 'rgba(255,255,255,0.8)',
                 'selectors' => [
@@ -451,7 +451,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'nav_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'textdomain'),
+                'label' => esc_html__('Border Radius', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
@@ -473,7 +473,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'style_pagination',
             [
-                'label' => esc_html__('Dots', 'textdomain'),
+                'label' => esc_html__('Dots', 'portfolio-filter'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'enable_pagination' => 'yes',
@@ -484,7 +484,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'dot_size',
             [
-                'label' => esc_html__('Dot Size', 'textdomain'),
+                'label' => esc_html__('Dot Size', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -507,7 +507,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'dot_color',
             [
-                'label' => esc_html__('Dot Color', 'textdomain'),
+                'label' => esc_html__('Dot Color', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => 'rgba(0,0,0,0.3)',
                 'selectors' => [
@@ -519,7 +519,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'dot_active_color',
             [
-                'label' => esc_html__('Active Dot Color', 'textdomain'),
+                'label' => esc_html__('Active Dot Color', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#007cba',
                 'selectors' => [
@@ -531,7 +531,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'dot_spacing',
             [
-                'label' => esc_html__('Spacing Between Dots', 'textdomain'),
+                'label' => esc_html__('Spacing Between Dots', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -620,7 +620,7 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
                                 <?php endif; ?>
                                 <div class="project-box">
                                     <a href="<?php echo esc_url($item['live_url']['url']); ?>" class="live-preview">
-                                        <i class="fas fa-arrow-right"></i>
+                                        <i class="fas fa-long-arrow-alt-right"></i>
                                     </a>
                                     <h3 class="project-title"><?php echo esc_html($item['project_title']); ?></h3>
                                     <span class="category-badge" <?php echo $category_style; ?>>
@@ -635,10 +635,10 @@ class Mrifat_Projects_Widget extends \Elementor\Widget_Base
                 <?php if ($settings['enable_navigation'] === 'yes'): ?>
                     <div class="navigation-box">
                         <div class="swiper-button-prev">
-                            <i class="fas fa-arrow-left"></i>
+                            <i class="fas fa-long-arrow-alt-left"></i>
                         </div>
                         <div class="swiper-button-next">
-                            <i class="fas fa-arrow-right"></i>
+                            <i class="fas fa-long-arrow-alt-right"></i>
                         </div>
                     </div>
                 <?php endif; ?>

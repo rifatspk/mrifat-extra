@@ -1,5 +1,3 @@
-(function (engine) { "use strict"; $.fn.particles = function () { var _this = this; var baseId = "tsparticles"; var init = function init(options, callback) { _this.each(function (index, element) { if (element.id === undefined) { element.id = baseId + Math.floor(engine.getRandom() * 1e3) } engine.tsParticles.load({ id: element.id, options: options }).then(callback) }) }; var ajax = function ajax(jsonUrl, callback) { _this.each(function (index, element) { if (element.id === undefined) { element.id = baseId + Math.floor(engine.getRandom() * 1e3) } engine.tsParticles.load({ id: element.id, url: jsonUrl }).then(callback) }) }; return { init: init, ajax: ajax } } })(window);
-
 
 (function ($) {
     $(document).ready(async function () {
@@ -75,19 +73,6 @@
                     },
                     detectRetina: true,
                 },
-                function (container) {
-                    // container is the particles container where you can play/pause or stop/start.
-                    // the container is already started, you don't need to start it manually.
-                },
             );
-
-        // or
-
-        $("#tsparticles")
-            .particles()
-            .ajax("particles.json", function (container) {
-                // container is the particles container where you can play/pause or stop/start.
-                // the container is already started, you don't need to start it manually.
-            });
     });
 })(jQuery);

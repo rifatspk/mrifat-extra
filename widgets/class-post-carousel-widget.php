@@ -12,12 +12,12 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
 
     public function get_name()
     {
-        return 'post_card_carousel';
+        return 'post_carousel';
     }
 
     public function get_title()
     {
-        return esc_html__('Post Card Carousel', 'textdomain');
+        return esc_html__('Post Carousel', 'post-carousel');
     }
 
     public function get_icon()
@@ -27,7 +27,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
 
     public function get_categories()
     {
-        return ['general'];
+        return ['mrifat-widgets'];
     }
 
     public function get_keywords()
@@ -52,7 +52,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'content_section',
             [
-                'label' => esc_html__('Content', 'textdomain'),
+                'label' => esc_html__('Content', 'post-carousel'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -60,7 +60,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'posts_per_page',
             [
-                'label' => esc_html__('Number of Posts', 'textdomain'),
+                'label' => esc_html__('Number of Posts', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 6,
                 'min' => 1,
@@ -71,7 +71,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'post_type',
             [
-                'label' => esc_html__('Post Type', 'textdomain'),
+                'label' => esc_html__('Post Type', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'post',
                 'options' => $this->get_post_types(),
@@ -81,14 +81,14 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'orderby',
             [
-                'label' => esc_html__('Order By', 'textdomain'),
+                'label' => esc_html__('Order By', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'date',
                 'options' => [
-                    'date' => esc_html__('Date', 'textdomain'),
-                    'title' => esc_html__('Title', 'textdomain'),
-                    'menu_order' => esc_html__('Menu Order', 'textdomain'),
-                    'rand' => esc_html__('Random', 'textdomain'),
+                    'date' => esc_html__('Date', 'post-carousel'),
+                    'title' => esc_html__('Title', 'post-carousel'),
+                    'menu_order' => esc_html__('Menu Order', 'post-carousel'),
+                    'rand' => esc_html__('Random', 'post-carousel'),
                 ],
             ]
         );
@@ -96,12 +96,12 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'order',
             [
-                'label' => esc_html__('Order', 'textdomain'),
+                'label' => esc_html__('Order', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'DESC',
                 'options' => [
-                    'ASC' => esc_html__('Ascending', 'textdomain'),
-                    'DESC' => esc_html__('Descending', 'textdomain'),
+                    'ASC' => esc_html__('Ascending', 'post-carousel'),
+                    'DESC' => esc_html__('Descending', 'post-carousel'),
                 ],
             ]
         );
@@ -109,10 +109,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_image',
             [
-                'label' => esc_html__('Show Featured Image', 'textdomain'),
+                'label' => esc_html__('Show Featured Image', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'textdomain'),
-                'label_off' => esc_html__('Hide', 'textdomain'),
+                'label_on' => esc_html__('Show', 'post-carousel'),
+                'label_off' => esc_html__('Hide', 'post-carousel'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -121,10 +121,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_title',
             [
-                'label' => esc_html__('Show Title', 'textdomain'),
+                'label' => esc_html__('Show Title', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'textdomain'),
-                'label_off' => esc_html__('Hide', 'textdomain'),
+                'label_on' => esc_html__('Show', 'post-carousel'),
+                'label_off' => esc_html__('Hide', 'post-carousel'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -133,10 +133,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_excerpt',
             [
-                'label' => esc_html__('Show Excerpt', 'textdomain'),
+                'label' => esc_html__('Show Excerpt', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'textdomain'),
-                'label_off' => esc_html__('Hide', 'textdomain'),
+                'label_on' => esc_html__('Show', 'post-carousel'),
+                'label_off' => esc_html__('Hide', 'post-carousel'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -145,7 +145,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'excerpt_length',
             [
-                'label' => esc_html__('Excerpt Length', 'textdomain'),
+                'label' => esc_html__('Excerpt Length', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 20,
                 'condition' => [
@@ -157,10 +157,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_date',
             [
-                'label' => esc_html__('Show Date', 'textdomain'),
+                'label' => esc_html__('Show Date', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'textdomain'),
-                'label_off' => esc_html__('Hide', 'textdomain'),
+                'label_on' => esc_html__('Show', 'post-carousel'),
+                'label_off' => esc_html__('Hide', 'post-carousel'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -169,10 +169,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_author',
             [
-                'label' => esc_html__('Show Author', 'textdomain'),
+                'label' => esc_html__('Show Author', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'textdomain'),
-                'label_off' => esc_html__('Hide', 'textdomain'),
+                'label_on' => esc_html__('Show', 'post-carousel'),
+                'label_off' => esc_html__('Hide', 'post-carousel'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -181,10 +181,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'show_read_more',
             [
-                'label' => esc_html__('Show Read More', 'textdomain'),
+                'label' => esc_html__('Show Read More', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'textdomain'),
-                'label_off' => esc_html__('Hide', 'textdomain'),
+                'label_on' => esc_html__('Show', 'post-carousel'),
+                'label_off' => esc_html__('Hide', 'post-carousel'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -193,9 +193,9 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'read_more_text',
             [
-                'label' => esc_html__('Read More Text', 'textdomain'),
+                'label' => esc_html__('Read More Text', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__('Read More', 'textdomain'),
+                'default' => esc_html__('Read More', 'post-carousel'),
                 'condition' => [
                     'show_read_more' => 'yes',
                 ],
@@ -208,7 +208,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'carousel_settings',
             [
-                'label' => esc_html__('Carousel Settings', 'textdomain'),
+                'label' => esc_html__('Carousel Settings', 'post-carousel'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -216,7 +216,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'slides_to_show_desktop',
             [
-                'label' => esc_html__('Slides to Show (Desktop)', 'textdomain'),
+                'label' => esc_html__('Slides to Show (Desktop)', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 1,
                 'max' => 10,
@@ -228,7 +228,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'slides_to_show_tablet',
             [
-                'label' => esc_html__('Slides to Show (Tablet)', 'textdomain'),
+                'label' => esc_html__('Slides to Show (Tablet)', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 1,
                 'max' => 10,
@@ -240,7 +240,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'slides_to_show_mobile',
             [
-                'label' => esc_html__('Slides to Show (Mobile)', 'textdomain'),
+                'label' => esc_html__('Slides to Show (Mobile)', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 1,
                 'max' => 10,
@@ -252,7 +252,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'slide_spacing',
             [
-                'label' => esc_html__('Spacing Between Slides', 'textdomain'),
+                'label' => esc_html__('Spacing Between Slides', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -272,10 +272,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'enable_navigation',
             [
-                'label' => esc_html__('Enable Navigation Arrows', 'textdomain'),
+                'label' => esc_html__('Enable Navigation Arrows', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'textdomain'),
-                'label_off' => esc_html__('Hide', 'textdomain'),
+                'label_on' => esc_html__('Show', 'post-carousel'),
+                'label_off' => esc_html__('Hide', 'post-carousel'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -284,10 +284,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'enable_pagination',
             [
-                'label' => esc_html__('Enable Dots', 'textdomain'),
+                'label' => esc_html__('Enable Dots', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'textdomain'),
-                'label_off' => esc_html__('Hide', 'textdomain'),
+                'label_on' => esc_html__('Show', 'post-carousel'),
+                'label_off' => esc_html__('Hide', 'post-carousel'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -296,10 +296,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'autoplay',
             [
-                'label' => esc_html__('Autoplay', 'textdomain'),
+                'label' => esc_html__('Autoplay', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'textdomain'),
-                'label_off' => esc_html__('No', 'textdomain'),
+                'label_on' => esc_html__('Yes', 'post-carousel'),
+                'label_off' => esc_html__('No', 'post-carousel'),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -308,7 +308,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'autoplay_delay',
             [
-                'label' => esc_html__('Autoplay Delay (ms)', 'textdomain'),
+                'label' => esc_html__('Autoplay Delay (ms)', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 3000,
                 'condition' => [
@@ -323,7 +323,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'layout_style_section',
             [
-                'label' => esc_html__('Layout', 'textdomain'),
+                'label' => esc_html__('Layout', 'post-carousel'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -331,7 +331,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'card_gap',
             [
-                'label' => esc_html__('Gap Between Cards', 'textdomain'),
+                'label' => esc_html__('Gap Between Cards', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px', 'em', '%'],
                 'range' => [
@@ -356,7 +356,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'card_style_section',
             [
-                'label' => esc_html__('Card Style', 'textdomain'),
+                'label' => esc_html__('Card Style', 'post-carousel'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -364,7 +364,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'card_height',
             [
-                'label' => esc_html__('Card Height', 'textdomain'),
+                'label' => esc_html__('Card Height', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px', '%', 'vh'],
                 'range' => [
@@ -399,7 +399,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'card_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'textdomain'),
+                'label' => esc_html__('Border Radius', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -419,7 +419,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'card_padding',
             [
-                'label' => esc_html__('Padding', 'textdomain'),
+                'label' => esc_html__('Padding', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -434,7 +434,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'image_style_section',
             [
-                'label' => esc_html__('Image Style', 'textdomain'),
+                'label' => esc_html__('Image Style', 'post-carousel'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_image' => 'yes',
@@ -445,7 +445,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'image_height',
             [
-                'label' => esc_html__('Image Height', 'textdomain'),
+                'label' => esc_html__('Image Height', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
@@ -459,7 +459,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-image' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .post-image' => 'height: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -467,16 +467,16 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'image_object_fit',
             [
-                'label' => esc_html__('Object Fit', 'textdomain'),
+                'label' => esc_html__('Object Fit', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'cover',
                 'options' => [
-                    'cover' => esc_html__('Cover', 'textdomain'),
-                    'contain' => esc_html__('Contain', 'textdomain'),
-                    'fill' => esc_html__('Fill', 'textdomain'),
+                    'cover' => esc_html__('Cover', 'post-carousel'),
+                    'contain' => esc_html__('Contain', 'post-carousel'),
+                    'fill' => esc_html__('Fill', 'post-carousel'),
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-image img' => 'object-fit: {{VALUE}};',
+                    '{{WRAPPER}} .post-image img' => 'object-fit: {{VALUE}};',
                 ],
             ]
         );
@@ -485,29 +485,169 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
             \Elementor\Group_Control_Border::get_type(),
             [
                 'name' => 'image_border',
-                'selector' => '{{WRAPPER}} .post-card-image',
+                'selector' => '{{WRAPPER}} .post-image',
             ]
         );
 
         $this->add_responsive_control(
             'image_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'textdomain'),
+                'label' => esc_html__('Border Radius', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .post-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
 
         $this->end_controls_section();
 
+        //Category Style
+        $this->start_controls_section(
+            'category_style_section',
+            [
+                'label' => esc_html__('Category Style', 'post-carousel'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'show_read_more' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'category_typography',
+                'selector' => '{{WRAPPER}} .category a',
+            ]
+        );
+
+        $this->start_controls_tabs('category_style_tabs');
+
+        $this->start_controls_tab(
+            'category_normal_tab',
+            [
+                'label' => esc_html__('Normal', 'post-carousel'),
+            ]
+        );
+
+        $this->add_control(
+            'category_color',
+            [
+                'label' => esc_html__('Text Color', 'post-carousel'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .category a' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Background::get_type(),
+            [
+                'name' => 'category_background',
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .category a',
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'category_border',
+                'selector' => '{{WRAPPER}} .category a',
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'category_hover_tab',
+            [
+                'label' => esc_html__('Hover', 'post-carousel'),
+            ]
+        );
+
+        $this->add_control(
+            'category_hover_color',
+            [
+                'label' => esc_html__('Text Color', 'post-carousel'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .category a:hover' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Background::get_type(),
+            [
+                'name' => 'category_hover_background',
+                'types' => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .category a:hover',
+            ]
+        );
+
+        $this->add_control(
+            'category_hover_border_color',
+            [
+                'label' => esc_html__('Border Color', 'post-carousel'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .category a:hover' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->add_responsive_control(
+            'category_border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'post-carousel'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .category a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'category_padding',
+            [
+                'label' => esc_html__('Padding', 'post-carousel'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .category a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'category_margin',
+            [
+                'label' => esc_html__('Margin', 'post-carousel'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .category a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+
         // Title Style
         $this->start_controls_section(
             'title_style_section',
             [
-                'label' => esc_html__('Title Style', 'textdomain'),
+                'label' => esc_html__('Title Style', 'post-carousel'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_title' => 'yes',
@@ -519,17 +659,17 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'title_typography',
-                'selector' => '{{WRAPPER}} .post-card-title',
+                'selector' => '{{WRAPPER}} .post-title',
             ]
         );
 
         $this->add_control(
             'title_color',
             [
-                'label' => esc_html__('Color', 'textdomain'),
+                'label' => esc_html__('Color', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-title a' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .post-title a' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -537,10 +677,10 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'title_hover_color',
             [
-                'label' => esc_html__('Hover Color', 'textdomain'),
+                'label' => esc_html__('Hover Color', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-title a:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .post-title a:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -548,11 +688,11 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'title_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .post-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -563,7 +703,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'excerpt_style_section',
             [
-                'label' => esc_html__('Excerpt Style', 'textdomain'),
+                'label' => esc_html__('Excerpt Style', 'post-carousel'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_excerpt' => 'yes',
@@ -575,17 +715,17 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'excerpt_typography',
-                'selector' => '{{WRAPPER}} .post-card-excerpt',
+                'selector' => '{{WRAPPER}} .excerpt',
             ]
         );
 
         $this->add_control(
             'excerpt_color',
             [
-                'label' => esc_html__('Color', 'textdomain'),
+                'label' => esc_html__('Color', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-excerpt' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .excerpt' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -593,11 +733,11 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'excerpt_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-excerpt' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .excerpt' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -608,7 +748,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'meta_style_section',
             [
-                'label' => esc_html__('Meta Style', 'textdomain'),
+                'label' => esc_html__('Meta Style', 'post-carousel'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -617,17 +757,17 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'meta_typography',
-                'selector' => '{{WRAPPER}} .post-card-meta',
+                'selector' => '{{WRAPPER}} .meta',
             ]
         );
 
         $this->add_control(
             'meta_color',
             [
-                'label' => esc_html__('Color', 'textdomain'),
+                'label' => esc_html__('Color', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-meta' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .meta' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -635,11 +775,11 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'meta_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-meta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .meta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -650,7 +790,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'button_style_section',
             [
-                'label' => esc_html__('Read More Button Style', 'textdomain'),
+                'label' => esc_html__('Read More', 'post-carousel'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_read_more' => 'yes',
@@ -662,7 +802,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'button_typography',
-                'selector' => '{{WRAPPER}} .post-card-read-more',
+                'selector' => '{{WRAPPER}} .read-btn',
             ]
         );
 
@@ -671,17 +811,17 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_tab(
             'button_normal_tab',
             [
-                'label' => esc_html__('Normal', 'textdomain'),
+                'label' => esc_html__('Normal', 'post-carousel'),
             ]
         );
 
         $this->add_control(
             'button_color',
             [
-                'label' => esc_html__('Text Color', 'textdomain'),
+                'label' => esc_html__('Text Color', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-read-more' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .read-btn' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -691,7 +831,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
             [
                 'name' => 'button_background',
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .post-card-read-more',
+                'selector' => '{{WRAPPER}} .read-btn',
             ]
         );
 
@@ -699,7 +839,7 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
             \Elementor\Group_Control_Border::get_type(),
             [
                 'name' => 'button_border',
-                'selector' => '{{WRAPPER}} .post-card-read-more',
+                'selector' => '{{WRAPPER}} .read-btn',
             ]
         );
 
@@ -708,17 +848,17 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->start_controls_tab(
             'button_hover_tab',
             [
-                'label' => esc_html__('Hover', 'textdomain'),
+                'label' => esc_html__('Hover', 'post-carousel'),
             ]
         );
 
         $this->add_control(
             'button_hover_color',
             [
-                'label' => esc_html__('Text Color', 'textdomain'),
+                'label' => esc_html__('Text Color', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-read-more:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .read-btn:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -728,17 +868,17 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
             [
                 'name' => 'button_hover_background',
                 'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .post-card-read-more:hover',
+                'selector' => '{{WRAPPER}} .read-btn:hover',
             ]
         );
 
         $this->add_control(
             'button_hover_border_color',
             [
-                'label' => esc_html__('Border Color', 'textdomain'),
+                'label' => esc_html__('Border Color', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-read-more:hover' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .read-btn:hover' => 'border-color: {{VALUE}};',
                 ],
             ]
         );
@@ -750,11 +890,11 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'button_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'textdomain'),
+                'label' => esc_html__('Border Radius', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-read-more' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .read-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -762,11 +902,11 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'button_padding',
             [
-                'label' => esc_html__('Padding', 'textdomain'),
+                'label' => esc_html__('Padding', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-read-more' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .read-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -774,155 +914,175 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
         $this->add_responsive_control(
             'button_margin',
             [
-                'label' => esc_html__('Margin', 'textdomain'),
+                'label' => esc_html__('Margin', 'post-carousel'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .post-card-read-more' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .read-btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
 
         $this->end_controls_section();
 
-        // Navigation Style
         $this->start_controls_section(
-            'navigation_style_section',
+            'style_navigation',
             [
-                'label' => esc_html__('Navigation Style', 'textdomain'),
+                'label' => esc_html__('Navigation Arrows', 'portfolio-filter'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'arrows_style_heading',
-            [
-                'label' => esc_html__('Arrows', 'textdomain'),
-                'type' => \Elementor\Controls_Manager::HEADING,
                 'condition' => [
-                    'show_arrows' => 'yes',
+                    'enable_navigation' => 'yes',
                 ],
             ]
         );
 
         $this->add_responsive_control(
-            'arrows_size',
+            'nav_size',
             [
-                'label' => esc_html__('Arrows Size', 'textdomain'),
+                'label' => esc_html__('Arrow Size', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
                     'px' => [
-                        'min' => 10,
-                        'max' => 100,
+                        'min' => 20,
+                        'max' => 80,
+                        'step' => 1,
                     ],
                 ],
-                'selectors' => [
-                    '{{WRAPPER}} .carousel-nav' => 'font-size: {{SIZE}}{{UNIT}};',
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 40,
                 ],
-                'condition' => [
-                    'show_arrows' => 'yes',
+                'selectors' => [
+                    '{{WRAPPER}} .swiper-button-next, {{WRAPPER}} .swiper-button-prev' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .swiper-button-next:after, {{WRAPPER}} .swiper-button-prev:after' => 'font-size: calc({{SIZE}}{{UNIT}} / 2);;',
                 ],
             ]
         );
 
         $this->add_control(
-            'arrows_color',
+            'nav_color',
             [
-                'label' => esc_html__('Arrows Color', 'textdomain'),
+                'label' => esc_html__('Arrow Color', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#007cba',
                 'selectors' => [
-                    '{{WRAPPER}} .carousel-nav' => 'color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'show_arrows' => 'yes',
+                    '{{WRAPPER}} .swiper-button-next, {{WRAPPER}} .swiper-button-prev' => 'color: {{VALUE}};',
                 ],
             ]
         );
 
         $this->add_control(
-            'arrows_hover_color',
+            'nav_bg_color',
             [
-                'label' => esc_html__('Arrows Hover Color', 'textdomain'),
+                'label' => esc_html__('Arrow Background', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => 'rgba(255,255,255,0.8)',
                 'selectors' => [
-                    '{{WRAPPER}} .carousel-nav:hover' => 'color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'show_arrows' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            \Elementor\Group_Control_Background::get_type(),
-            [
-                'name' => 'arrows_background',
-                'types' => ['classic', 'gradient'],
-                'selector' => '{{WRAPPER}} .carousel-nav',
-                'condition' => [
-                    'show_arrows' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'dots_style_heading',
-            [
-                'label' => esc_html__('Dots', 'textdomain'),
-                'type' => \Elementor\Controls_Manager::HEADING,
-                'separator' => 'before',
-                'condition' => [
-                    'show_dots' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'dots_color',
-            [
-                'label' => esc_html__('Dots Color', 'textdomain'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .carousel-dot' => 'background-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'show_dots' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'dots_active_color',
-            [
-                'label' => esc_html__('Active Dot Color', 'textdomain'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .carousel-dot.active' => 'background-color: {{VALUE}};',
-                ],
-                'condition' => [
-                    'show_dots' => 'yes',
+                    '{{WRAPPER}} .swiper-button-next, {{WRAPPER}} .swiper-button-prev' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
 
         $this->add_responsive_control(
-            'dots_size',
+            'nav_border_radius',
             [
-                'label' => esc_html__('Dots Size', 'textdomain'),
+                'label' => esc_html__('Border Radius', 'portfolio-filter'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                        'step' => 1,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .swiper-button-next, {{WRAPPER}} .swiper-button-prev' => 'border-radius: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // Style Section - Pagination
+        $this->start_controls_section(
+            'style_pagination',
+            [
+                'label' => esc_html__('Dots', 'portfolio-filter'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'enable_pagination' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'dot_size',
+            [
+                'label' => esc_html__('Dot Size', 'portfolio-filter'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
                     'px' => [
                         'min' => 5,
-                        'max' => 30,
+                        'max' => 25,
+                        'step' => 1,
                     ],
                 ],
-                'selectors' => [
-                    '{{WRAPPER}} .carousel-dot' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 8,
                 ],
-                'condition' => [
-                    'show_dots' => 'yes',
+                'selectors' => [
+                    '{{WRAPPER}} .swiper-pagination-bullet' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dot_color',
+            [
+                'label' => esc_html__('Dot Color', 'portfolio-filter'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => 'rgba(0,0,0,0.3)',
+                'selectors' => [
+                    '{{WRAPPER}} .swiper-pagination-bullet' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dot_active_color',
+            [
+                'label' => esc_html__('Active Dot Color', 'portfolio-filter'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#007cba',
+                'selectors' => [
+                    '{{WRAPPER}} .swiper-pagination-bullet-active' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'dot_spacing',
+            [
+                'label' => esc_html__('Spacing Between Dots', 'portfolio-filter'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 2,
+                        'max' => 20,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 4,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .swiper-pagination-bullet' => 'margin: 0 {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -1008,81 +1168,70 @@ class Post_Card_Carousel_Widget extends \Elementor\Widget_Base
 
         if (!$query->have_posts()) {
             if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
-                echo '<p>' . esc_html__('No posts found. Please check your query settings.', 'textdomain') . '</p>';
+                echo '<p>' . esc_html__('No posts found. Please check your query settings.', 'post-carousel') . '</p>';
             }
             return;
         }
         ?>
-        <div class="post-carousel-widget-container">
-            <div <?php $this->print_render_attribute_string('swiper-container'); ?>>
-                <div class="swiper-wrapper">
-                    <?php while ($query->have_posts()):
-                        $query->the_post(); ?>
-                        <div class="swiper-slide">
-                            <article class="post-card">
-                                <?php if ('yes' === $settings['show_image'] && has_post_thumbnail()): ?>
-                                    <div class="post-card__image-wrapper">
-                                        <a href="<?php echo esc_url(get_permalink()); ?>" aria-label="<?php the_title_attribute(); ?>">
-                                            <?php the_post_thumbnail('medium_large', ['class' => 'post-card__image', 'alt' => get_the_title()]); ?>
-                                        </a>
-                                    </div>
+        <div <?php $this->print_render_attribute_string('swiper-container'); ?>>
+            <div class="swiper-wrapper">
+                <?php while ($query->have_posts()):
+                    $query->the_post(); ?>
+                    <div class="swiper-slide">
+                        <article class="post-card">
+                            <div class="post-image">
+                                <?php if (has_post_thumbnail()): ?>
+                                    <img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'medium')); ?>"
+                                        alt="<?php echo esc_attr(get_the_title()); ?>">
                                 <?php endif; ?>
+                                <div class="overlay">
+                                    <div class="category">
+                                        <?php the_category(' '); ?>
+                                    </div>
 
-                                <div class="post-card__content">
-                                    <?php if ('yes' === $settings['show_date'] || 'yes' === $settings['show_author']): ?>
-                                        <div class="post-card__meta">
-                                            <?php if ('yes' === $settings['show_date']): ?>
-                                                <span class="post-card__date"><?php echo get_the_date(); ?></span>
-                                            <?php endif; ?>
-                                            <?php if ('yes' === $settings['show_author']): ?>
-                                                <span class="post-card__author">
-                                                    <?php echo esc_html__('By', 'textdomain') . ' ' . esc_html(get_the_author()); ?>
-                                                </span>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endif; ?>
-
-                                    <?php if ('yes' === $settings['show_title']): ?>
-                                        <h3 class="post-card__title">
-                                            <a href="<?php echo esc_url(get_permalink()); ?>">
-                                                <?php the_title(); ?>
-                                            </a>
-                                        </h3>
-                                    <?php endif; ?>
-
-                                    <?php if ('yes' === $settings['show_excerpt']): ?>
-                                        <div class="post-card__excerpt">
-                                            <?php echo esc_html($this->get_excerpt(get_the_ID(), $settings['excerpt_length'])); ?>
-                                        </div>
-                                    <?php endif; ?>
-
-                                    <?php if ('yes' === $settings['show_read_more']): ?>
-                                        <a href="<?php echo esc_url(get_permalink()); ?>" class="post-card__read-more">
-                                            <?php echo esc_html($settings['read_more_text']); ?>
-                                        </a>
-                                    <?php endif; ?>
+                                    <h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                    <div class="meta">
+                                        <span><i class="fas fa-user"></i> <?php the_author(); ?></span>
+                                        <span><i class="fas fa-calendar-alt"></i> <?php echo get_the_date(); ?></span>
+                                    </div>
                                 </div>
-                            </article>
-                        </div>
-                    <?php endwhile; ?>
+                            </div>
+                            <div class="post-body">
+                                <p class="excerpt">
+                                    <?php echo esc_html($this->get_excerpt(get_the_ID(), $settings['excerpt_length'])); ?>
+                                </p>
+                                <div class="read-row">
+                                    <div class="author">
+                                        <img src="/wp-content/uploads/2025/05/profile-picture.webp" alt="<?php the_author(); ?>">
+                                        <div>
+                                            <div class="name"><?php the_author(); ?></div>
+                                            <div class="role"><?php echo esc_html(get_the_author_meta('description')); ?></div>
+                                        </div>
+                                    </div>
+                                    <a href="<?php the_permalink(); ?>"
+                                        class="read-btn"><?php echo esc_html__('Read More', 'mrifat-extra'); ?></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+        </div>
+        <?php if ($settings['enable_navigation'] === 'yes'): ?>
+            <div class="navigation-box">
+                <div class="swiper-button-prev">
+                    <i class="fas fa-long-arrow-alt-left"></i>
+                </div>
+                <div class="swiper-button-next">
+                    <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
+        <?php endif; ?>
 
-            <?php if ('yes' === $settings['enable_navigation'] || 'yes' === $settings['enable_pagination']): ?>
-                <div class="post-carousel__controls">
-                    <?php if ('yes' === $settings['enable_navigation']): ?>
-                        <div class="post-carousel__navigation">
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-                    <?php endif; ?>
+        <?php if ($settings['enable_pagination'] === 'yes'): ?>
+            <div class="swiper-pagination"></div>
+        <?php endif; ?>
 
-                    <?php if ('yes' === $settings['enable_pagination']): ?>
-                        <div class="swiper-pagination post-carousel__pagination"></div>
-                    <?php endif; ?>
-                </div>
-            <?php endif; ?>
-        </div>
         <script>
             jQuery(document).ready(function ($) {
                 var carouselContainer = $('.elementor-element-<?php echo $widget_id; ?> .post-carousel-swiper');

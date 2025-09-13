@@ -18,8 +18,11 @@ class Mrifat_Extra_Form_Handler
 
     public function enqueue_scripts()
     {
+        wp_enqueue_script('mrifat-particle-lib', MRIFAT_EXTRA_URL . 'assets/js/particles.min.js', [], '1.0.0', true);
+        wp_enqueue_script('mrifat-particle-wrapper', 'https://cdn.jsdelivr.net/npm/@tsparticles/jquery', [], '1.0.0', true);
+        wp_enqueue_script('mrifat-particle-script', MRIFAT_EXTRA_URL . 'assets/js/particle-script.js', [], '1.0.0', true);
         wp_enqueue_script('mrifat-extra-script', MRIFAT_EXTRA_URL . 'assets/js/script.js', [], '1.0.0', true);
-		wp_localize_script('mrifat-extra-script', 'mrifat_contact_ajax', [
+        wp_localize_script('mrifat-extra-script', 'mrifat_contact_ajax', [
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('mrifat_contact_nonce'),
             'recaptcha_enabled' => get_option('mrifat_recaptcha_enabled', 0),
